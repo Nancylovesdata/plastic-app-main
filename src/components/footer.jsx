@@ -6,10 +6,12 @@ import plasticLogo6 from "../assets/plastic-logo6.png";
 export const Footer = () => {
   const navigate = useNavigate();
   return (
-    <footer className="bg-gray-900 text-white py-10">
+    <footer className="bg-[#06132b] text-white py-10 mt-48 ">
       <div className="container mx-auto flex justify-between">
         <div className="flex items-center mb-4 sm:mb-0">
-          <img src={plasticLogo6} alt="Logo" className="w-35 h-12 mr-2" />
+<p>Plastic Buddy is a company <br />that bring all plastic dealers in Ghana <br />to your door step</p>
+
+          {/* <img src={plasticLogo6} alt="Logo" className="w-35 h-12 mr-2" /> */}
           {/* <span className="text-xl font-semibold">Recycle</span> */}
         </div>
         <div className="flex  justify-between gap-10 ">
@@ -34,12 +36,12 @@ export const Footer = () => {
             <h3 className="text-lg font-semibold mb-2">Company</h3>
             <ul className="flex flex-col gap-1">
               <li>About us</li>
-              <li
+              {/* <li
                 className="cursor-pointer"
                 onClick={() => navigate("/contact-us")}
               >
                 Contact
-              </li>
+              </li> */}
               <li>Privacy Policy</li>
             </ul>
           </div>
@@ -55,7 +57,8 @@ export const Footer = () => {
           <h3 className="text-lg font-semibold mb-2">Connect</h3>
           <div className="flex space-x-4">
             <a href="#" className="text-white hover:text-gray-400">
-              <i className="fab fa-facebook"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            
             </a>
             <a href="#" className="text-white hover:text-gray-400">
               <i className="fab fa-twitter"></i>

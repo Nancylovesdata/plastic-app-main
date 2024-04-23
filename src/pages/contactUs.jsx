@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar } from "../components/navbar";
 import { Footer } from "../components/footer";
 
 export const ContactUs = () => {
+  const [showPhoneNumber, setShowPhoneNumber] = useState(false);
+
+  const handleContactClick = () => {
+    setShowPhoneNumber(true);
+  };
+
   return (
     <>
       <Navbar />
@@ -20,64 +26,48 @@ export const ContactUs = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <div className="w-full md:w-1/2 lg:w-1/3 px-4">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-            <form>
-              <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block text-gray-700 font-semibold mb-2"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
-                  placeholder="Enter your name"
-                />
+        {showPhoneNumber ? (
+          <div className="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+            <img
+              className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0"
+              src="https://tailwindcss.com/img/erin-lindford.jpg"
+              alt="Woman's Face"
+            />
+            <div className="text-center space-y-2 sm:text-left">
+              <div className="space-y-0.5">
+                <p className="text-lg text-[#023692] font-semibold">
+                  Plastic dealer name
+                </p>
+                <p className="text-slate-500 font-medium">Location</p>
+                <p className="text-slate-500 font-medium">
+                  Phone Number: +123456789
+                </p>
               </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-gray-700 font-semibold mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="message"
-                  className="block text-gray-700 font-semibold mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
-                  placeholder="Enter your message"
-                ></textarea>
+            </div>
+          </div>
+        ) : (
+          <div className="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+            <img
+              className="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0"
+              src="https://tailwindcss.com/img/erin-lindford.jpg"
+              alt="Woman's Face"
+            />
+            <div className="text-center space-y-2 sm:text-left">
+              <div className="space-y-0.5">
+                <p className="text-lg text-[#023692] font-semibold">
+                  Plastic dealer name
+                </p>
+                <p className="text-slate-500 font-medium">Location</p>
               </div>
               <button
-                type="submit"
-                className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+                onClick={handleContactClick}
+                className="px-4 py-1 text-sm text-[#023692] font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-[#023692] hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
               >
-                Send Message
+                Contact
               </button>
-            </form>
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <Footer />
     </>

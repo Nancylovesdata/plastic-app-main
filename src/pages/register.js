@@ -1,5 +1,6 @@
-import React from 'react'
-import collectorsImage from '../assets/collectors-image.jpg'
+import React, { useState } from 'react';
+import collectorsImage from '../assets/collectors-image.jpg';
+import { useNavigate } from "react-router";
 
 const colors = {
     primary: "#060606",
@@ -7,119 +8,126 @@ const colors = {
     disabled: "#D9D9D9",
 };
 
-
 export const Register = () => {
+    const navigate = useNavigate();
+    const [selectedRole, setSelectedRole] = useState("");
+
+    const handleRoleChange = (event) => {
+        setSelectedRole(event.target.value);
+    };
+
     return (
         <>
             <div className='w-full h-screen flex items-start'>
-                <div className='relative w-1/2 h-full flex flex-col'>
+                <div className='relative w-1/2 h-full flex flex-col' style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${collectorsImage})`, backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
                     <div className='absolute top-[25%] left-[10%] flex flex-col'>
-                        <h1 className='text-4xl text-white font-bold my-4'>Make your plastics reusable</h1>
+                        <h1 className='text-4xl text-white font-bold my-4 '>Make your plastics reusable</h1>
                         <p className='text-xl text-white font-normal'>Gather all your plastics and give them to any of our plastic dealers here</p>
                     </div>
-
-                    <img src={collectorsImage} className='w-full h-full object-cover' alt='Register' />
-
-
                 </div>
+
                 <div className='w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between'>
-                    {/* <h1 className='w-full max-w-[500px] mx-auto text-xl text-[#060606] font-semibold mr-auto'>We Recycle</h1> */}
                     <div className='w-full flex flex-col max-w-[500px]'>
-                        <div className='w-full flex flex-col mb-2'>
-                            <h3 className='text-3xl font-semibold mb-2'>Register here</h3>
-                            {/* <p className='text-base mb-2'>Welcome! Please enter your details.</p> */}
+                        <div className="w-full">
+                            <h3 className="text-black mb-2 text-xl">Register </h3>
+                            <select
+                                className="w-full text-grey border-2 rounded-lg p-4 pl-2 pr-2 text-black dark:border-gray-600 dark:bg-gray-800"
+                                value={selectedRole}
+                                onChange={handleRoleChange}
+                            >
+                                <option disabled value="">Register As</option>
+                                <option value="dealer">Plastic Dealer</option>
+                                <option value="user">User</option>
+                            </select>
                         </div>
 
-                        <div className='w-full flex flex-col'>
-                            <input
-                                type="text"
-                                placeholder="First name "
-                                className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                            />
+                        {/* Common input fields */}
+                        <input
+                            type="text"
+                            placeholder="First name"
+                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                        />
+                        <input
+                            type="text"
+                            placeholder="Last name"
+                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                        />
+                        {/* Add other common input fields here */}
 
-                            <input
-                                type="text"
-                                placeholder="Last name "
-                                className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                            />
+                        {/* Additional input fields for Plastic Dealer */}
+                        {selectedRole === "dealer" && (
+                            <>
 
+                                {/* Add other input fields specific to Plastic Dealer here */}
 
-                            <input
-                                type="text"
-                                placeholder="Email "
-                                className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                            />
-
-                            <input
-                                type="password"
-                                placeholder="Password"
-                                className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                            />
-
-<input
-                                type="password"
-                                placeholder="Confirm Password"
-                                className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                            />
-                            
-
-                            <input
-                                type="text"
-                                placeholder="Location"
-                                className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                            />
-
-<input
-                                type="tel"
-                                placeholder="phone number"
-                                className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                            />
+                                <div className="w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none">
+                                    <label htmlFor="upload" className="text-gray-600 font-medium cursor-pointer">
+                                        Upload file
+                                        <input id="upload" type="file" className="hidden" />
+                                    </label>
+                                </div>
 
 
-                        </div>
+                                {/* <input
+                                    id="upload"
+                                    type="file"
 
+                                    className="w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none"
+                                /> */}
+                            </>
+                        )}
 
-                        
+                        <input
+                            type="text"
+                            placeholder="Email"
+                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                        />
+                        {/* Add other common input fields here */}
+
+                        {/* Additional input fields for User */}
+                        {selectedRole === "user" && (
+                            <>
+                                <input
+                                    type="text"
+                                    placeholder="Location"
+                                    className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                                />
+                                {/* Add other input fields specific to User here */}
+                            </>
+                        )}
+
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                        />
+                        <input
+                            type="password"
+                            placeholder="Confirm Password"
+                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                        />
+                        <input
+                            type="tel"
+                            placeholder="Phone number"
+                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                        />
 
                         <div className='w-full flex flex-col items-center justify-between'>
-                            {/* <div className='w-full flex items-center'>
-                                <input type="checkbox" className="w-4 h-4 mr-2" />
-                                <p className='text-sm'>Remember Me for 30 days</p>
-                                <p className='text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2'>Forgot password</p>
-                            </div> */}
-
                             <div className='w-full flex flex-col my-4'>
                                 <button className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center cursor-pointer'>
                                     Register
                                 </button>
-                                {/* <button className='w-full text-[#060606] my-2 font-semibold bg-white rounded-md border border-black p-4 text-center flex items-center justify-center cursor-pointer'>
-                                    Register
-                                </button> */}
                             </div>
-
-                            {/* <div className='w-full flex items-center justify-center relative py-2'>
-                                <div className='w-full h-[10px] bg-black/40'></div>
-                                <p className='text-lg absolute text-black/80 bg-[#f5f5f5]'>Or</p>
-                            </div> */}
-
-                            {/* <div className='w-full text-[#060606] my-2 font-semibold bg-white rounded-md border border-black/40 p-4 text-center flex items-center justify-center cursor-pointer'>
-                <img src={trueGoogle} className='h-6 mr-2' alt='Google Logo' />
-                Sign in with Google
-              </div> */}
                         </div>
+
                         <div className='w-full flex items-center justify-center'>
                             <p className='text-sm font-normal text-[#060606]'>
-                                Already have an account? <span className='font-semibold underline underline-offset-2 cursor-pointer'>Login</span>
+                                Already have an account? <span className='font-semibold underline underline-offset-2 cursor-pointer' onClick={() => navigate("/login")}>Login</span>
                             </p>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
-
         </>
-    )
-}
+    );
+};

@@ -6,9 +6,11 @@ import { Header } from "./pages/header";
 import { GoogleSign } from "./pages/google-sign";
 // import { Dealers } from "./pages/dealers";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Categories } from "./pages/categories";
+import {Categories} from "./pages/categories";
 import { FAQ } from "./components/FAQs/FAQs";
-import { ContactUs } from "./pages/contactUs";
+import  {Dealerdetail}  from "./pages/dealer-detail";
+import { Dashboard } from "./pages/dashboard";
+import { Navbar1 } from "./components/navbar1";
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
         {/* <Route path="/dealers" element={<Dealers />} /> */}
         <Route path="/categories" element={<Categories />} />
         <Route path="/faqs" element={<FAQ />} />
-        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/dealer-detail" element={<Dealerdetail/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/navbar1" element={<Navbar1/>} />
       </Routes>
     </BrowserRouter>
   );
