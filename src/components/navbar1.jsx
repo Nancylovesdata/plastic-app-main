@@ -33,8 +33,8 @@ export const Navbar1 = () => {
             </div>
             <div className="hidden group-hover:block absolute right-0 top-10 bg-white shadow-md rounded">
               <ul>
-                <li><a href="#" className="block px-4 py-2 bg-gray-300">Settings</a></li>
-                <li><a href="./" className="block px-4 py-2">Logout</a></li>
+                <li><a href="#" className="block px-4 py-2 bg-gray-300 text-primary">Settings</a></li>
+                <li><a href="./" className="block px-4 py-2 text-primary">Logout</a></li>
               </ul>
             </div>
           </div>
