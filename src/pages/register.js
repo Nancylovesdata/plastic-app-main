@@ -170,6 +170,14 @@ export const Register = () => {
                                     className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                                 />
 
+<input
+                                    type="tel"
+                                    placeholder="Contact"
+                                    name="Contact"
+                                    onChange={handleFormChange}
+                                    className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                                />
+
                         {/* Additional input fields for Plastic Dealer */}
                         {selectedRole === "dealer" && (
                             <>

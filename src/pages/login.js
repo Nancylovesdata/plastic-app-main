@@ -42,7 +42,7 @@ export const Login = () => {
           <div className='w-full flex flex-col max-w-[500px]'>
             <div className='w-full flex flex-col mb-2'>
               <h3 className='text-3xl font-semibold mb-2'>Login</h3>
-              <p className='text-base mb-2'>Welcome back! Please enter your details.</p>
+              <p className='text-base mb-2'>Welcome back! Please enter your details if you have an account already.</p>
             </div>
 
             <div className='w-full flex flex-col'>

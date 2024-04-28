@@ -106,8 +106,16 @@ export const Categories = () => {
                         <p className="font-bold">Plastic Bottle</p>
                     </div>
 
-
-
+                    <div className="flex flex-col items-center gap-y-3 " onClick={() => handleChange("Polythene Bag")}>
+                        <div className="bg-primary/70 relative p-4 rounded-full" >
+                            <img
+                                src={smallImg4}
+                                alt="Small Image 3"
+                                className="w-16 h-16 object-cover rounded-lg"
+                            />
+                        </div>
+                        <p className="font-bold">Plastic Bags</p>
+                    </div>
 
                     <div className="flex flex-col items-center gap-y-3 " onClick={() => handleChange("Sachet Water Waste")}>
                         <div className="bg-primary/70 relative p-4 rounded-full" >
@@ -120,17 +128,6 @@ export const Categories = () => {
                         <p className="font-bold">Sachet Water Waste</p>
                     </div>
 
-
-                    <div className="flex flex-col items-center gap-y-3 " onClick={() => handleChange("Polythene Bag")}>
-                        <div className="bg-primary/70 relative p-4 rounded-full" >
-                            <img
-                                src={smallImg4}
-                                alt="Small Image 3"
-                                className="w-16 h-16 object-cover rounded-lg"
-                            />
-                        </div>
-                        <p className="font-bold">Plastic Bags</p>
-                    </div>
 
                     <div className="flex flex-col items-center gap-y-3 " onClick={() => handleChange("Plastic Bottles")}>
                         <div className="bg-primary/70 relative p-4 rounded-full">

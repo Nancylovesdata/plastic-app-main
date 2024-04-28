@@ -144,7 +144,7 @@ export const Dashboard = () => {
 
                                         <div class="flex flex-col py-3">
                                             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Location</dt>
-                                            <dd class="text-lg font-semibold">Accra</dd>
+                                            <dd class="text-lg font-semibold">Dodowa</dd>
                                         </div>
                                         <div class="flex flex-col py-3">
                                             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Contact</dt>
