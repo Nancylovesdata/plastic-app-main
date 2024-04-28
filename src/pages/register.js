@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import collectorsImage from '../assets/collectors-image.jpg';
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router-dom";
+
 
 const colors = {
     primary: "#060606",
@@ -9,11 +10,87 @@ const colors = {
 };
 
 export const Register = () => {
-    const navigate = useNavigate();
-    const [selectedRole, setSelectedRole] = useState("");
+    const [registerUser, SetregisterUser] = useState({
+        firstName: "",
+        lastName: "",
+        UserName: "",
+        Email: "",
+        Password: ""
 
-    const handleRoleChange = (event) => {
+
+    });
+
+
+    const [registerDealer, SetregisterDealer] = useState({
+        firstName: "",
+        lastName: "",
+        UserName: "",
+        Email: "",
+        Password: "",
+        PhoneNumber: "",
+        Location: "",
+        image: ""
+
+    });
+
+
+    const navigate = useNavigate();
+    const location = useLocation()
+    console.log(location)
+
+    const [selectedRole, setSelectedRole] = useState("dealer");
+    const [dealerData, setdealerData] = useState("");
+
+    const handleSelectRole = (event) => {
         setSelectedRole(event.target.value);
+
+    };
+
+
+
+
+    const handleFormChange = (event) => {
+        const { name, value } = event.target
+        SetregisterDealer((prevDealerData) => ({ ...prevDealerData, [name]: value }));
+
+    };
+
+    const handleSubmit = async () => {
+        navigate('/login', { state: { searchTerm: location.state.searchTerm } })
+        if (selectedRole == "dealer") {
+            const dealerForm = {
+                firstName: registerDealer.firstName,
+                lastName: registerDealer.lastName,
+                userName: registerDealer.UserName,
+                email: registerDealer.Email,
+                password: registerDealer.Password,
+                phoneNumber: registerDealer.PhoneNumber,
+                location: registerDealer.Location,
+                image: registerDealer.image
+            }
+            try {
+                const response = await fetch('http://localhost:4000/api/dealer/signup', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(dealerForm)
+                });
+                const data = await response.json();
+                // Handle successful response
+                if (data.status === 201) {
+                    console.log(
+                        "Data saved successfully")
+                }
+            } catch (error) {
+
+                console.error('Error:', error);
+                // Handle error
+            }
+
+
+        }
+
     };
 
     return (
@@ -33,7 +110,7 @@ export const Register = () => {
                             <select
                                 className="w-full text-grey border-2 rounded-lg p-4 pl-2 pr-2 text-black dark:border-gray-600 dark:bg-gray-800"
                                 value={selectedRole}
-                                onChange={handleRoleChange}
+                                onChange={handleSelectRole}
                             >
                                 <option disabled value="">Register As</option>
                                 <option value="dealer">Plastic Dealer</option>
@@ -45,76 +122,84 @@ export const Register = () => {
                         <input
                             type="text"
                             placeholder="First name"
+                            name="firstName"
+                            onChange={handleFormChange}
                             className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                         />
                         <input
                             type="text"
                             placeholder="Last name"
+                            name="lastName"
+                            onChange={handleFormChange}
                             className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                         />
-                        {/* Add other common input fields here */}
-
-                        {/* Additional input fields for Plastic Dealer */}
-                        {selectedRole === "dealer" && (
-                            <>
-
-                                {/* Add other input fields specific to Plastic Dealer here */}
-
-                                <div className="w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none">
-                                    <label htmlFor="upload" className="text-gray-600 font-medium cursor-pointer">
-                                        Upload file
-                                        <input id="upload" type="file" className="hidden" />
-                                    </label>
-                                </div>
-
-
-                                {/* <input
-                                    id="upload"
-                                    type="file"
-
-                                    className="w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none"
-                                /> */}
-                            </>
-                        )}
-
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            name="Username"
+                            onChange={handleFormChange}
+                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                        />
                         <input
                             type="text"
                             placeholder="Email"
+                            name="Email"
+                            onChange={handleFormChange}
                             className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                         />
-                        {/* Add other common input fields here */}
-
-                        {/* Additional input fields for User */}
-                        {selectedRole === "user" && (
-                            <>
-                                <input
-                                    type="text"
-                                    placeholder="Location"
-                                    className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                                />
-                                {/* Add other input fields specific to User here */}
-                            </>
-                        )}
-
                         <input
+
+
                             type="password"
                             placeholder="Password"
+                            name="Password"
+                            onChange={handleFormChange}
                             className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                         />
                         <input
                             type="password"
                             placeholder="Confirm Password"
+                            onChange={handleFormChange}
                             className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
                         />
-                        <input
-                            type="tel"
-                            placeholder="Phone number"
-                            className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
-                        />
+                         <input
+                                    type="text"
+                                    placeholder="Location"
+                                    name="Location"
+                                    onChange={handleFormChange}
+                                    className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                                />
+
+                        {/* Additional input fields for Plastic Dealer */}
+                        {selectedRole === "dealer" && (
+                            <>
+                               
+                                <div className="w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none">
+                                    <label htmlFor="upload" className="text-gray-600 font-medium cursor-pointer">
+                                        Upload image
+                                        <input id="upload" type="file" className="hidden" />
+                                    </label>
+                                </div>
+                                <input
+                                    type="tel"
+                                    placeholder="Phone number"
+                                    name="PhoneNumber"
+                                    onChange={handleFormChange}
+                                    className='w-full text-black py-2 my-2 bg-transparent border-b border-black outline-none focus:outline-none'
+                                />
+                            </>
+                        )}
+
+                        {/* Additional input fields for User */}
+                        {selectedRole === "user" && (
+                            <>
+                                {/* No additional input fields for User */}
+                            </>
+                        )}
 
                         <div className='w-full flex flex-col items-center justify-between'>
                             <div className='w-full flex flex-col my-4'>
-                                <button className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center cursor-pointer'>
+                                <button className='w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center flex items-center justify-center cursor-pointer' onClick={() => handleSubmit()}>
                                     Register
                                 </button>
                             </div>

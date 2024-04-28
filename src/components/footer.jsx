@@ -9,7 +9,7 @@ export const Footer = () => {
     <footer className="bg-[#06132b] text-white py-10 mt-48 ">
       <div className="container mx-auto flex justify-between">
         <div className="flex items-center mb-4 sm:mb-0">
-<p>Plastic Buddy is a company <br />that bring all plastic dealers in Ghana <br />to your door step</p>
+<p>Plastic Buddy is a company <br />that brings all plastic dealers in Ghana <br />to your door step</p>
 
           {/* <img src={plasticLogo6} alt="Logo" className="w-35 h-12 mr-2" /> */}
           {/* <span className="text-xl font-semibold">Recycle</span> */}
@@ -43,6 +43,7 @@ export const Footer = () => {
                 Contact
               </li> */}
               <li>Privacy Policy</li>
+              <li>Pricing</li>
             </ul>
           </div>
           <div className="flex flex-col gap-2">
@@ -55,6 +56,7 @@ export const Footer = () => {
         </div>
         <div>
           <h3 className="text-lg font-semibold mb-2">Connect</h3>
+          <h1>Email: admin@plasticbuddy.com</h1>
           <div className="flex space-x-4">
             <a href="#" className="text-white hover:text-gray-400">
             <i class="fa-brands fa-linkedin"></i>

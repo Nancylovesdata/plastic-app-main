@@ -8,28 +8,28 @@ import { Footer } from "../footer";
 export const FAQ = ({ noImage }) => {
   const faqs = [
     {
-      name: "Who should join FluxTribe?",
+      name: "What are some common types of plastics used in everyday products?",
       description:
-        "Anyone who is passionate about their goals and needs some motivation to achieve them.",
+        "Answer: Plastics come in various types, including PET (polyethylene terephthalate), HDPE (high-density polyethylene), PVC (polyvinyl chloride), LDPE (low-density polyethylene), PP (polypropylene), PS (polystyrene), and others.",
     },
     {
-      name: "Can I create a community goal on FluxTribe?",
-      description:
-        "Yes. Either create a goal and invite people to join or join an  already existing community that aims at the same goal as you.",
+      name: "How can I reduce plastic waste in my daily life?",
+      description :
+        "You can reduce plastic waste by using reusable bags, bottles, and containers, avoiding single-use plastics like straws and utensils, and choosing products with minimal or no plastic packaging.",
     },
     {
-      name: "Is FluxTribe app free?",
+      name: "What should I do with plastic items that I no longer need?",
       description:
-        "The Fluxtribe App is completely free. You can choose to stake on your goal or not.",
+        " Whenever possible, try to recycle plastic items through your local recycling program. If recycling is not an option, consider repurposing or donating usable items, or disposing of them responsibly in accordance with local waste management guidelines.",
     },
     {
-      name: "Can I track individual goal progress on FluxTribe?",
-      description: `Each member regularly checks in on their goals according to the community's established rules. Your check-in submissions are then reviewed by two members who are associated with different goals within the community.`,
+      name: "How can businesses reduce their plastic usage and environmental impact?",
+      description: ` Businesses can reduce plastic usage by adopting eco-friendly packaging alternatives, implementing recycling programs, promoting reusable products, and educating employees and customers about sustainable practices.`,
     },
     {
-      name: "How many goals can I create at a time?",
+      name: "What are the environmental impacts of plastic pollution?",
       description:
-        "You can create as many goals as you desire to achieve. You are limitless.",
+        "Plastic pollution can harm wildlife, contaminate ecosystems, and contribute to the degradation of natural habitats. Additionally, plastics can leach harmful chemicals into soil and water, posing risks to human health.",
     },
   ];
 
@@ -48,13 +48,13 @@ export const FAQ = ({ noImage }) => {
           <div
             className={`relative grid gap-7 justify-items-center flex z-10 mx-6`}
           >
-            <h1 className="text-[#1A1C1F] font-black md:text-[64px] text-3xl whitespace-pre-line md:leading-[73px]">
+            <h1 className="text-primary font-black md:text-[64px] text-3xl whitespace-pre-line md:leading-[73px]">
               <StyleText
                 text={"Frequently Asked Questions"}
                 coloredText={"Frequently"}
               />
             </h1>
-            <p className="text-[#847D81] text-sm md:text-xl md:leading-[40px]">
+            <p className="text-prime text-sm md:text-xl md:leading-[40px]">
               Everything you need to know about about Fluxtribe and all it
               unique great features
             </p>
@@ -70,14 +70,14 @@ export const FAQ = ({ noImage }) => {
       >
         {!noImage ? (
           <div>
-            <h2 className="font-bold text-[#111827] text-[32px]">
+            <h2 className="font-bold text-prime">
               Frequently Asked Questions
             </h2>
-            <p className="text-[var(--gray-400)] leading-6  mt-4 max-w-[421px]">
-              Everything you need to know about about Fluxtribe and all its
-              unique great features
+            <p className="text-primary leading-6  mt-4 max-w-[421px]">
+              Everything you need to know about about Plastics and all its
+            management
             </p>
-            <img className="mt-2 md:pr-[70px]" src="" alt="collage" />
+            {/* <img className="mt-2 md:pr-[70px]" src="" alt="collage" /> */}
           </div>
         ) : null}
         <div className="flex flex-col gap-4 justify-evenly">
@@ -97,7 +97,7 @@ const FAQListItem = ({ name, description }) => {
   return (
     <div className=" border border-[var(--gray-200)] p-4 tracking-[2% ] rounded-md h-[fit-content]">
       <div className="flex justify-between">
-        <p className="font-medium text-lg text-[#111827]">{name}</p>
+        <p className="font-medium text-lg text-primary">{name}</p>
         <button
           title="button"
           onClick={() => {
@@ -111,7 +111,7 @@ const FAQListItem = ({ name, description }) => {
           />
         </button>
       </div>
-      {openFaq ? <p className="mt-6 text-base">{description}</p> : null}
+      {openFaq ? <p className="mt-6 text-base text-prime">{description}</p> : null}
     </div>
   );
 };

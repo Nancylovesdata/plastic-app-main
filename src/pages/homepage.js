@@ -12,10 +12,7 @@ const [login, Setlogin] = useState(false);
 
   return (
     <div>
-      {login?  <Navbar1 />: <Navbar />}
-     
-    
-      
+      {login?  <Navbar1 />: <Navbar />}    
       <Header />
       <Main />
       <Footer />

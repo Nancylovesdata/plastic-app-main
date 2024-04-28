@@ -12,7 +12,7 @@ export const Dealerdetail= () => {
   return (
     <>
       <Navbar />
-      <div className="flex justify-center py-8">
+      <div className="flex justify-center py-8">z
         <div className="w-full md:w-1/2 lg:w-2/3 px-4">
           <iframe
             title="Google Maps"

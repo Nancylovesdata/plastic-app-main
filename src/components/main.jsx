@@ -31,7 +31,7 @@ export const Main = () => {
 
 
                             </div>
-                            <div class="order-1 text-5xl font-extrabold text-[#023692]">840,000+ tonnes</div>
+                            <div class="order-1 text-5xl font-extrabold text-[#023692]">8M tonnes</div>
                         </div>
 
 
@@ -41,7 +41,7 @@ export const Main = () => {
 
 
                             </div>
-                            <div class="order-1 text-5xl font-extrabold text-[#023692]">8M tonnes</div>
+                            <div class="order-1 text-5xl font-extrabold text-[#023692]">840,000+ tonnes</div>
                         </div>
 
                         <div class="bg-gray-50 flex flex-col border-b border-gray-100 px-10 py-20 text-center sm:border-0 sm:border-r shadow-lg">
